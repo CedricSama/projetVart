@@ -12,6 +12,11 @@
         "favicon.ico"
       ],
       "index": "index.html",
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.js",
+        "../node_modules/popper/dist/index.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js"
+      ],
       "main": "main.ts",
       "polyfills": "polyfills.ts",
       "test": "test.ts",
@@ -19,9 +24,9 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "styles.css"
       ],
-      "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
