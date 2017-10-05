@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {trigger, state, style, animate, transition, query} from "@angular/animations";
+import {trigger, style, animate, transition, query} from "@angular/animations";
 
 @Component({
   selector: 'app-root',
@@ -12,23 +12,24 @@ import {trigger, state, style, animate, transition, query} from "@angular/animat
           style({
             position: 'fixed',
             width: '100%',
-            transform: 'translateY(305%)'
+            opacity: 0,
+            transform: 'scale(1.1)'
           }),
           {optional: true}),
         query(':leave',
-          animate('500ms ease',
+          animate('400ms ease',
             style({
               position: 'fixed',
               width: '100%',
-              transform: 'translateY(-300%)'
+              transform: 'scale(0)'
             })
           ),
           {optional: true}),
         query(':enter',
-          animate('500ms ease',
+          animate('400ms ease',
             style({
               opacity: 1,
-              transform: 'translateY(0%)'
+              transform: 'scale(1)'
             })
           ),
           {optional: true}),
