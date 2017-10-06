@@ -1,19 +1,14 @@
-const Sequelize = require('sequelize');
-const connection = require ('../connection/connection');
+const Sequelize = require('Sequelize');
+const connection = require('../connection/connection');
 
 const User = connection.define('user', {
-  creationDate:{
-    type:  Sequelize.DATE,
-    allowNull: false,
-    isDate: true
-  },
-  eMail: {
+  email: {
     type: Sequelize.STRING,
     isEmail: true,
     allowNull: false,
     primaryKey: true
   },
-  passWord: {
+  password: {
     type: Sequelize.STRING,
     allowNull: false
   },
@@ -21,12 +16,15 @@ const User = connection.define('user', {
     type: Sequelize.BOOLEAN,
     allowNull: false
   },
-  creditCart: {
-    type: Sequelize.NUMBER,
-    isCreditCard: true
-  },
   address: {
-    type: Sequelize.STRING},
+    type: Sequelize.STRING
+  },
+  /*creditCart: {
+    type: Sequelize.NUMBER,
+    validate: {
+      isCreditCard: true
+    }
+  }
   getterMethods: {
     fullInformation() {
       return this.creationDate + ' ' + this.eMail + ' ' + this.socity + ' ' + this.address
@@ -57,16 +55,15 @@ const User = connection.define('user', {
     changePassWord(passWord) {
       this.setDataValue('passWord', passWord.toString().toLowerCase());
     },
-  }
+  }*/
 });
 
 connection.sync({force: true}).then(() => User.create({
-  creationDate: new Date(1999, 9, 9),
-  eMail: 'tamerelajane@gmail.com',
-  passWord: 1234,
+  email: 'tamerelajane@gmail.com',
+  password: 1111,
   socity: false
 })).then(lajane => {
-  console.log('Ouai ouai ouai' + lajane.get({plain: true}));
+  console.log('Ouai ouai ouai', lajane.get({plain: true}));
 });
 
 module.exports = User;

@@ -1,4 +1,4 @@
-const Sequelize = require('sequelize');
+const Sequelize = require('Sequelize');
 const connection = require('../connection/connection');
 
 const Run = connection.define('run', {
@@ -7,12 +7,6 @@ const Run = connection.define('run', {
     allowNull: false,
     primaryKey: true,
     autoIncrement: true
-  },
-  creationDate: {
-    type: Sequelize.DATE,
-    allowNull: false,
-    defaultValue: Sequelize.NOW,
-    isDate: true
   },
   startAddress: {
     type: Sequelize.STRING,
@@ -24,7 +18,8 @@ const Run = connection.define('run', {
   },
   startDate: {type: Sequelize.NUMBER},
   arrivedDate: {type: Sequelize.NUMBER},
-  price: {type: Sequelize.NUMBER},
+  price: {type: Sequelize.NUMBER}
+  /*,
   getterMethods: {
     fullInformations() {
       return this.id + ' ' + this.creationDate + ' ' + this.startAddress + ' ' + this.arrivedAddress + ' ' + this.startDate + ' ' + this.arrivedDate + ' ' + this.price
@@ -70,7 +65,7 @@ const Run = connection.define('run', {
     changeArrivedAddress(arrivedDate) {
             this.setDataValue('arrivedDate', arrivedDate.toString().toLowerCase());
     }
-  }
+  }*/
 });
 
 module.exports = Run;

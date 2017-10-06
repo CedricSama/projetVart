@@ -7,9 +7,11 @@ http.createServer(function (request, response) {
 }).listen(8080);*/
 let app = require('express')();
 let User = require('./models/user');
+let {Controller}=require('./controller/abstractController');
 const port = 8080;
 
-app.use(new User);
+// new User;
+app.use('/user',(new Controller(User)).getRoot());
 app.listen(port, ()=>{
   console.log("Server Run on :" + port);
 });
