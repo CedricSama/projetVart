@@ -37,7 +37,6 @@ import {trigger, style, animate, transition, query} from "@angular/animations";
     ])
   ]
 })
-
 export class AppComponent {
   getRouteAnimation(outlet) {
     return outlet.activatedRouteData.animation
